@@ -86,6 +86,7 @@ const Treeview = props => {
               parent = parent.parent;
             }
             if (props.node.editing) {
+              handleSelect(props.node);
               return (
                 <InputField
                   className="treeview-inputfield"

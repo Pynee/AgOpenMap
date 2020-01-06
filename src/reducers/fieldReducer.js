@@ -52,30 +52,44 @@ const fieldReducer = (state = initialState.fieldReducer, action) => {
       });
 
     case "UPDATE_NAME":
-      /*       return produce(state, draftState => {
-        console.log(
-          original(draftState.selected.path).reduce(
-            (prev, current, currentIndex) => {
-              console.log(prev, current, currentIndex);
-              const index = prev.findIndex(element => current === element.id);
-              prev = prev[index];
-            },
-            original(draftState.fieldsJSON)
-          )
-        );   });*/
       return produce(state, draftState => {
+        const path = state.selected.path;
         const index = draftState.fieldsJSON.findIndex(
-          field => state.selected[0] === field.id
+          field => path[0] === field.id
         );
-        draftState.fieldsJSON[index].text = action.payload;
-        draftState.fieldsJSON[index].editing = false;
+        console.log(index, path, action.payload);
+        switch (state.selected.type) {
+          case "Markers":
+            const markerIndex =
+              state.fieldsJSON[index].child[1].child.length - 1;
+            console.log(markerIndex);
+            draftState.fieldsJSON[index].child[1].child[markerIndex].text =
+              action.payload;
+            draftState.fieldsJSON[index].child[1].child[
+              markerIndex
+            ].editing = false;
+            return;
+          case "Boundary":
+            return;
+          default:
+            draftState.fieldsJSON[index].text = action.payload;
+            draftState.fieldsJSON[index].editing = false;
+            return;
+        }
       });
     case "UPDATE":
       return produce(state, draftState => {
         action.path.reduce((prev, curr) => {});
       });
     case "ADD_MARKER":
-      return state;
+      return produce(state, draftState => {
+        const index = draftState.fieldsJSON.findIndex(
+          field => state.selected.path[0] === field.id
+        );
+        console.log(index, state.selected.path[0]);
+        draftState.fieldsJSON[index].child[1].child.push(action.payload);
+      });
+
     case "ADD_POLYGON":
       return state;
     case "ADD_POLYGON_VERTEX":
