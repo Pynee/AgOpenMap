@@ -1,0 +1,7 @@
+{
+  "name": "AgOpenMap",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react"
+}

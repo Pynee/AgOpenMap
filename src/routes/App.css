@@ -1,0 +1,153 @@
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  display: flex;
+  perspective: 1000px;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  margin: 0 auto;
+  background: #a5a3f1;
+}
+.files {
+  display: none;
+  /* display: flex; */
+  width: 100vw;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.button button:hover {
+  background: #111;
+}
+.dnd-tree {
+  width: 50vw;
+  height: 100vh;
+  padding: 10px;
+  padding: 10px;
+}
+.dnd-item {
+  width: 100px;
+  height: 50px;
+  box-shadow: 2px 2px;
+}
+.menu-button {
+  border: none;
+  background: none;
+}
+.menu-button button:hover {
+  background: #fff;
+}
+
+/*------------------SidePanel-------------------------*/
+.side-nav {
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  top: 0;
+  left: 0;
+  background: var(--ion-color-primary);
+  opacity: 0.95;
+  overflow-x: hidden;
+  transition: 0.2s;
+}
+.side-panel-button {
+  width: 50px;
+  height: 50px;
+  background-repeat: no-repeat !important;
+  background-size: 40px 40px !important;
+  background-position: center !important;
+  font-size: 0px;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+.side-nav .container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  float: right;
+  padding-left: 10px;
+}
+.treeview {
+  padding: 10px;
+  background: #fff;
+  display: inline-flex;
+  flex-grow: 1;
+  overflow-y: auto;
+  height: 80wh;
+  width: 99%;
+}
+.inputfield {
+  width: 100%;
+}
+
+.disable-backdrop-bigscreen {
+  --width: 100vw;
+}
+@media only screen and (min-width: 900px) {
+  .disable-backdrop-bigscreen {
+    width: 500px;
+    --width: 500px;
+  }
+}
+
+input {
+  height: 1.5rem;
+  width: 1.5rem;
+  appearance: none;
+  border: 1px solid #41b883;
+  border-radius: 4px;
+  outline: none;
+  transition-duration: 0.3s;
+  background-color: #34495e;
+  cursor: pointer;
+
+  color: var(ion-color-primary);
+  align-self: stretch;
+}
+
+input:checked {
+  border: 1px solid #41b883;
+  background-color: #34495e;
+}
+input:indeterminate::before {
+  content: "\2501";
+  font-weight: 900;
+  display: block;
+  text-align: center;
+  color: #41b883;
+}
+input:checked::before {
+  content: "\2713";
+  font-weight: 900;
+  display: block;
+  text-align: center;
+  color: #41b883;
+}
+.node-content-draggable {
+  display: block;
+  width: 100%;
+}
+.node-content-text {
+  width: 200px;
+  float: left;
+}
+.node-content-data {
+  width: 100px;
+  overflow: hidden;
+  float: right;
+}
+.checkbox-container {
+  height: 1.5rem;
+  width: 1.5rem;
+  max-height: 1.5rem;
+  max-width: 1.5rem;
+}
