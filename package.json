@@ -12,7 +12,7 @@
     "@types/react-redux": "^7.1.5",
     "@types/react-router-dom": "^5.1.3",
     "eyzy-tree": "^0.2.2",
-    "immer": "^5.0.0",
+    "immer": "^8.0.1",
     "leaflet": "^1.5.1",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
